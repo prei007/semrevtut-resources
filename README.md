@@ -34,9 +34,7 @@ The executable examples require:
 
 - Java;
 - [Apache Jena](https://jena.apache.org/), with the `arq` and `riot` commands on `PATH`; and
-- a terminal opened in the repository root (`semrevtut`).
-
-[Quarto](https://quarto.org/) is needed only to render the manuscript. The current PDF configuration also refers to a local APA CSL file; replace the absolute `csl` path in the manuscript front matter with a CSL file available on your system before rendering elsewhere.
+- a terminal opened in the repository root (`semrevtut-resources`, or the folder/directory you copied the resources into).
 
 ## Run the examples
 
