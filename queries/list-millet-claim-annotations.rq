@@ -1,0 +1,22 @@
+PREFIX oa:   <http://www.w3.org/ns/oa#>
+PREFIX mp:   <http://purl.org/mp/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?annotationLabel ?claim ?evidenceLabel ?page ?exact
+WHERE {
+  GRAPH ?graph {
+    ?annotation a oa:Annotation ;
+                rdfs:label ?annotationLabel ;
+                oa:hasBody ?body ;
+                oa:hasTarget ?target .
+    ?body a mp:Claim ;
+          mp:statement ?claim .
+    ?evidence a mp:Data ;
+              rdfs:label ?evidenceLabel ;
+              mp:supports ?body .
+    ?target bibo:pages ?page ;
+            oa:hasSelector/oa:exact ?exact .
+  }
+}
+ORDER BY ?page ?annotationLabel

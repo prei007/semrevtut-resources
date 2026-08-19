@@ -1,0 +1,38 @@
+PREFIX oa:   <http://www.w3.org/ns/oa#>
+PREFIX mp:   <http://purl.org/mp/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?annotationLabel ?motivation ?bodyKind ?bodyValue ?page ?exact
+WHERE {
+  GRAPH ?graph {
+    ?annotation a oa:Annotation ;
+                rdfs:label ?annotationLabel ;
+                oa:motivatedBy ?motivation ;
+                oa:hasBody ?body ;
+                oa:hasTarget ?target .
+
+    ?target bibo:pages ?page ;
+            oa:hasSelector/oa:exact ?exact .
+
+    OPTIONAL {
+      ?body a mp:Claim ;
+            mp:statement ?claimStatement .
+    }
+  }
+
+  OPTIONAL {
+    ?body a skos:Concept ;
+          skos:prefLabel ?conceptLabel .
+    FILTER(LANG(?conceptLabel) = "en")
+  }
+
+  BIND(
+    IF(BOUND(?conceptLabel), "SKOS concept",
+      IF(BOUND(?claimStatement), "Claim", "Other"))
+    AS ?bodyKind
+  )
+  BIND(COALESCE(?conceptLabel, ?claimStatement, STR(?body)) AS ?bodyValue)
+}
+ORDER BY ?page ?annotationLabel

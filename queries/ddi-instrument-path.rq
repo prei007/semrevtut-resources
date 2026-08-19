@@ -1,0 +1,16 @@
+PREFIX toi:  <http://rdf-vocabulary.ddialliance.org/cv/TypeOfInstrument/1.1.2/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?conceptLabel ?notation ?broaderLabel
+WHERE {
+  toi:aa1571e (^skos:narrower)* ?concept .
+  ?concept skos:prefLabel ?conceptLabel ;
+           skos:notation ?notation .
+  FILTER(LANG(?conceptLabel) = "en")
+  OPTIONAL {
+    ?broader skos:narrower ?concept ;
+             skos:prefLabel ?broaderLabel .
+    FILTER(LANG(?broaderLabel) = "en")
+  }
+}
+ORDER BY ?notation
