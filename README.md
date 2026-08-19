@@ -38,7 +38,7 @@ The executable examples require:
 
 ## Run the examples
 
-All commands below should be run from the `semrevtut` directory.
+All commands below should be run from the `semrevtut-resources` directory, or the directory where you stored these files locally.
 
 ### Inspect passage-anchored annotations
 
