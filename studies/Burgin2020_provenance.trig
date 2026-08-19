@@ -1,0 +1,115 @@
+@prefix study:  <http://www.learn-graph.net/nanodidax/studies/> .
+@prefix burgann: <http://www.learn-graph.net/nanodidax/annotations/Burgin2020/> .
+@prefix review: <http://www.learn-graph.net/nanodidax/review/> .
+@prefix meth:   <http://www.learn-graph.net/nanodidax/schemes/methods/> .
+@prefix feat:   <http://www.learn-graph.net/nanodidax/schemes/features/> .
+@prefix oa:     <http://www.w3.org/ns/oa#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix bibo:   <http://purl.org/ontology/bibo/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://www.learn-graph.net/nanodidax/graphs/Burgin2020-provenance> {
+
+  study:Burgin2020_Publication
+      a dct:BibliographicResource, prov:Entity ;
+      rdfs:label "Burgin et al. (2020)"@en ;
+      dct:title
+          "Using a Faculty-Developed Documentary-Style Film to Communicate Authentic Chemistry Research to a High School Audience"@en ;
+      dct:creator "Burgin et al." ;
+      dct:issued "2020"^^xsd:gYear ;
+      dct:identifier <https://doi.org/10.1021/acs.jchemed.0c00376> ;
+      bibo:doi "10.1021/acs.jchemed.0c00376" .
+
+  review:Reviewer1
+      a prov:Person, prov:Agent ;
+      rdfs:label "Reviewer 1"@en .
+
+  review:CodingManualVersion_0_1_0
+      a prov:Entity ;
+      dct:title "Nano-education review coding manual"@en ;
+      dct:identifier "0.1.0" .
+
+  review:ResearchMethodsCodebookVersion_0_2_0
+      a prov:Entity ;
+      dct:title "Research methods thesaurus"@en ;
+      dct:identifier "0.2.0" ;
+      dct:source meth:Methods .
+
+  review:TechnologyFeaturesCodebookVersion_0_1_0
+      a prov:Entity ;
+      dct:title "Technology feature types"@en ;
+      dct:identifier "0.1.0" ;
+      dct:source feat:Features .
+
+  review:Accepted
+      a skos:Concept ;
+      skos:prefLabel "accepted"@en .
+
+  burgann:CodingSession
+      a prov:Activity, review:IndependentCodingActivity ;
+      rdfs:label "Independent coding of Burgin et al. (2020)"@en ;
+      prov:wasAssociatedWith review:Reviewer1 ;
+      prov:used
+          study:Burgin2020_Publication,
+          review:CodingManualVersion_0_1_0,
+          review:ResearchMethodsCodebookVersion_0_2_0,
+          review:TechnologyFeaturesCodebookVersion_0_1_0 ;
+      prov:startedAtTime "2026-08-14T11:00:00+02:00"^^xsd:dateTime ;
+      prov:endedAtTime "2026-08-14T11:20:00+02:00"^^xsd:dateTime .
+
+  burgann:DocumentaryVideoTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Burgin2020_Publication ;
+      bibo:pages "2352" ;
+      oa:hasSelector burgann:DocumentaryVideoSelector .
+
+  burgann:DocumentaryVideoSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "A documentary-style film was created with the intent purpose of having it viewed by high school chemistry students in a classroom setting at an area high school."@en .
+
+  burgann:DocumentaryVideoAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Documentary-video coding of Burgin et al. (2020)"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody feat:DocumentaryVideo ;
+      oa:hasTarget burgann:DocumentaryVideoTarget ;
+      dct:description
+          "The code describes the educational technology used with learners, not merely the medium in which the article was disseminated."@en ;
+      prov:wasAttributedTo review:Reviewer1 ;
+      prov:wasGeneratedBy burgann:CodingSession ;
+      prov:generatedAtTime "2026-08-14T11:08:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion review:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion review:TechnologyFeaturesCodebookVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+  burgann:MixedMethodsTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Burgin2020_Publication ;
+      bibo:pages "2353" ;
+      oa:hasSelector burgann:MixedMethodsSelector .
+
+  burgann:MixedMethodsSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "These mixed-methods observational and interview data were analyzed using qualitative methodologies consistent with those employed when conducting naturalistic forms of inquiry."@en .
+
+  burgann:MixedMethodsAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Mixed-methods coding of Burgin et al. (2020)"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody meth:MixedMethods ;
+      oa:hasTarget burgann:MixedMethodsTarget ;
+      dct:description
+          "The paper combines survey summaries with qualitative observation and interview data and describes these data as mixed-methods."@en ;
+      prov:wasAttributedTo review:Reviewer1 ;
+      prov:wasGeneratedBy burgann:CodingSession ;
+      prov:generatedAtTime "2026-08-14T11:14:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion review:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion review:ResearchMethodsCodebookVersion_0_2_0 ;
+      review:hasStatus review:Accepted .
+}

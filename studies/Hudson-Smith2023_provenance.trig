@@ -1,0 +1,368 @@
+@prefix study:  <http://www.learn-graph.net/nanodidax/studies/> .
+@prefix hsann:  <http://www.learn-graph.net/nanodidax/annotations/Hudson-Smith2023/> .
+@prefix review: <http://www.learn-graph.net/nanodidax/review/> .
+@prefix bloom:  <http://www.learn-graph.net/thesauri/bloom_outcomes/> .
+@prefix meth:   <http://www.learn-graph.net/nanodidax/schemes/methods/> .
+@prefix feat:   <http://www.learn-graph.net/nanodidax/schemes/features/> .
+@prefix oa:     <http://www.w3.org/ns/oa#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix mp:     <http://purl.org/mp/> .
+@prefix bibo:   <http://purl.org/ontology/bibo/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://www.learn-graph.net/nanodidax/graphs/Hudson-Smith2023-provenance> {
+
+  #################################################################
+  # Minimal source description
+  #################################################################
+
+  study:Hudson-Smith2023_Publication
+      a dct:BibliographicResource, prov:Entity ;
+      rdfs:label "Hudson-Smith et al. (2023)"@en ;
+      dct:title
+          "NanoAdventure: Development of a Text-Based Adventure Game in English, Spanish, and Chinese for Communicating about Nanotechnology and the Nanoscale"@en ;
+      dct:creator "Hudson-Smith et al." ;
+      dct:issued "2023"^^xsd:gYear ;
+      dct:identifier <https://doi.org/10.1021/acs.jchemed.3c00042> ;
+      bibo:doi "10.1021/acs.jchemed.3c00042" .
+
+
+  #################################################################
+  # Agents, versioned coding resources, and local workflow terms
+  #################################################################
+
+  hsann:Reviewer1
+      a prov:Person, prov:Agent ;
+      rdfs:label "Reviewer 1"@en .
+
+  hsann:Reviewer2
+      a prov:Person, prov:Agent ;
+      rdfs:label "Reviewer 2"@en .
+
+  hsann:CodingManualVersion_0_1_0
+      a prov:Entity ;
+      dct:title "Nano-education review coding manual"@en ;
+      dct:identifier "0.1.0" .
+
+  hsann:BloomCodebookVersion_0_2_0
+      a prov:Entity ;
+      dct:title "Bloom cognitive taxonomies tutorial codebook"@en ;
+      dct:identifier "0.2.0" ;
+      dct:source bloom:BloomCognitiveTaxonomies .
+
+  hsann:ResearchMethodsCodebookVersion_0_2_0
+      a prov:Entity ;
+      dct:title "Research methods thesaurus"@en ;
+      dct:identifier "0.2.0" ;
+      dct:source meth:Methods .
+
+  hsann:TechnologyFeaturesCodebookVersion_0_1_0
+      a prov:Entity ;
+      dct:title "Technology feature types"@en ;
+      dct:identifier "0.1.0" ;
+      dct:source feat:Features .
+
+  review:IndependentCodingActivity
+      a rdfs:Class ;
+      rdfs:label "independent coding activity"@en .
+
+  review:AdjudicationActivity
+      a rdfs:Class ;
+      rdfs:label "adjudication activity"@en .
+
+  review:usedCodingManualVersion
+      a rdf:Property ;
+      rdfs:label "used coding-manual version"@en .
+
+  review:usedCodebookVersion
+      a rdf:Property ;
+      rdfs:label "used codebook version"@en .
+
+  review:hasStatus
+      a rdf:Property ;
+      rdfs:label "has review status"@en .
+
+  review:Accepted
+      a skos:Concept ;
+      skos:prefLabel "accepted"@en .
+
+  review:Superseded
+      a skos:Concept ;
+      skos:prefLabel "superseded"@en ;
+      skos:scopeNote
+          "The coding act remains in the record but has been replaced by a later decision."@en .
+
+
+  #################################################################
+  # Independent coding sessions
+  #################################################################
+
+  hsann:Reviewer1CodingSession
+      a prov:Activity, review:IndependentCodingActivity ;
+      rdfs:label "Reviewer 1 independent coding session"@en ;
+      prov:wasAssociatedWith hsann:Reviewer1 ;
+      prov:used
+          study:Hudson-Smith2023_Publication,
+          hsann:CodingManualVersion_0_1_0,
+          hsann:BloomCodebookVersion_0_2_0,
+          hsann:ResearchMethodsCodebookVersion_0_2_0,
+          hsann:TechnologyFeaturesCodebookVersion_0_1_0 ;
+      prov:startedAtTime "2026-08-14T09:00:00+02:00"^^xsd:dateTime ;
+      prov:endedAtTime "2026-08-14T09:30:00+02:00"^^xsd:dateTime .
+
+  hsann:Reviewer2CodingSession
+      a prov:Activity, review:IndependentCodingActivity ;
+      rdfs:label "Reviewer 2 independent coding session"@en ;
+      prov:wasAssociatedWith hsann:Reviewer2 ;
+      prov:used
+          study:Hudson-Smith2023_Publication,
+          hsann:CodingManualVersion_0_1_0,
+          hsann:BloomCodebookVersion_0_2_0 ;
+      prov:startedAtTime "2026-08-14T10:00:00+02:00"^^xsd:dateTime ;
+      prov:endedAtTime "2026-08-14T10:25:00+02:00"^^xsd:dateTime .
+
+
+  #################################################################
+  # Corpus-level classifications used in the cross-study query
+  #################################################################
+
+  hsann:VideoGameTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Hudson-Smith2023_Publication ;
+      bibo:pages "2269" ;
+      oa:hasSelector hsann:VideoGameSelector .
+
+  hsann:VideoGameSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "Here, we report on the use of an interactive text-style video game, NanoAdventure, to communicate about sense of scale and nanotechnology to the public."@en .
+
+  hsann:VideoGameAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Video-game coding of Hudson-Smith et al. (2023)"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody feat:VideoGame ;
+      oa:hasTarget hsann:VideoGameTarget ;
+      dct:description
+          "NanoAdventure is coded as a video game because it is interactive fiction implemented as a digital game rather than a conventional linear text."@en ;
+      prov:wasAttributedTo hsann:Reviewer1 ;
+      prov:wasGeneratedBy hsann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-14T09:08:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion hsann:TechnologyFeaturesCodebookVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+  hsann:RandomizedExperimentTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Hudson-Smith2023_Publication ;
+      bibo:pages "2269" ;
+      oa:hasSelector hsann:RandomizedExperimentSelector .
+
+  hsann:RandomizedExperimentSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "NanoAdventure was launched in three languages (English, Spanish, Chinese) and compared to textbook-style and blog-style control texts in a randomized study."@en .
+
+  hsann:RandomizedExperimentAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Randomized-experiment coding of Hudson-Smith et al. (2023)"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody meth:RandomizedExperiment ;
+      oa:hasTarget hsann:RandomizedExperimentTarget ;
+      dct:description
+          "The code concerns random allocation to NanoAdventure, textbook, and blog conditions, not merely the presence of comparison texts."@en ;
+      prov:wasAttributedTo hsann:Reviewer1 ;
+      prov:wasGeneratedBy hsann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-14T09:10:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion hsann:ResearchMethodsCodebookVersion_0_2_0 ;
+      review:hasStatus review:Accepted .
+
+
+  #################################################################
+  # Shared target 1: stated educational purpose
+  #################################################################
+
+  hsann:BloomUnderstandTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Hudson-Smith2023_Publication ;
+      bibo:pages "2269" ;
+      oa:hasSelector hsann:BloomUnderstandSelector .
+
+  hsann:BloomUnderstandSelector
+      a oa:TextQuoteSelector ;
+      oa:prefix
+          "However, the development of educational video games requires expertise and, frequently, a sizable budget."@en ;
+      oa:exact
+          "Here, we report on the use of an interactive text-style video game, NanoAdventure, to communicate about sense of scale and nanotechnology to the public."@en ;
+      oa:suffix
+          "NanoAdventure was developed on an open-source, free-to-use platform with simple coding and enhanced with free or low-cost assets."@en .
+
+  # Reviewer 1 interprets the purpose as Understand.
+  hsann:BloomUnderstandAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Bloom Understand coding of NanoAdventure's stated purpose"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody bloom:RevisedUnderstand ;
+      oa:hasTarget hsann:BloomUnderstandTarget ;
+      dct:description
+          "Reviewer memo: the passage describes communicating conceptual meaning about scale and nanotechnology; the classification concerns the intended cognitive process, not the occurrence of a particular verb."@en ;
+      prov:wasAttributedTo hsann:Reviewer1 ;
+      prov:wasGeneratedBy hsann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-14T09:12:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion hsann:BloomCodebookVersion_0_2_0 ;
+      review:hasStatus review:Superseded .
+
+  # Reviewer 2 applies Remember to the same passage: an explicit disagreement.
+  hsann:BloomRememberAnnotation_R2
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Reviewer 2: Bloom Remember coding"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody bloom:RevisedRemember ;
+      oa:hasTarget hsann:BloomUnderstandTarget ;
+      dct:description
+          "The stated public-communication goal was interpreted as recall of nanoscale information."@en ;
+      prov:wasAttributedTo hsann:Reviewer2 ;
+      prov:wasGeneratedBy hsann:Reviewer2CodingSession ;
+      prov:generatedAtTime "2026-08-14T10:10:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion hsann:BloomCodebookVersion_0_2_0 ;
+      review:hasStatus review:Superseded .
+
+
+  #################################################################
+  # Shared target 2: knowledge finding (agreement)
+  #################################################################
+
+  hsann:KnowledgeGainClaim
+      a mp:Claim ;
+      rdfs:label "Knowledge increased on three of five items"@en ;
+      mp:statement
+          "NanoAdventure participants showed statistically significant knowledge increases on three of five nanotechnology knowledge items."@en .
+
+  hsann:KnowledgeGainData
+      a mp:Data ;
+      rdfs:label "Reported NanoAdventure knowledge-comparison result"@en ;
+      dct:source hsann:KnowledgeGainTarget ;
+      mp:supports hsann:KnowledgeGainClaim .
+
+  hsann:KnowledgeGainTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Hudson-Smith2023_Publication ;
+      bibo:pages "2274" ;
+      oa:hasSelector hsann:KnowledgeGainSelector .
+
+  hsann:KnowledgeGainSelector
+      a oa:TextQuoteSelector ;
+      oa:prefix
+          "In the Blog group, all statements showed a statistically significant increase in knowledge."@en ;
+      oa:exact
+          "In the NanoAdventure Game group, three of five statements show a statistically significant increase in knowledge (Figure 8)."@en ;
+      oa:suffix
+          "The two questions that did not show significant improvement in the NanoAdventure condition were Question 4.1/23,"@en .
+
+  hsann:KnowledgeGainAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Extraction of the NanoAdventure knowledge finding"@en ;
+      oa:motivatedBy oa:describing ;
+      oa:hasBody hsann:KnowledgeGainClaim ;
+      oa:hasTarget hsann:KnowledgeGainTarget ;
+      prov:wasAttributedTo hsann:Reviewer1 ;
+      prov:wasGeneratedBy hsann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-14T09:20:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+  hsann:KnowledgeGainAnnotation_R2
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Reviewer 2: extraction of the knowledge finding"@en ;
+      oa:motivatedBy oa:describing ;
+      oa:hasBody hsann:KnowledgeGainClaim ;
+      oa:hasTarget hsann:KnowledgeGainTarget ;
+      prov:wasAttributedTo hsann:Reviewer2 ;
+      prov:wasGeneratedBy hsann:Reviewer2CodingSession ;
+      prov:generatedAtTime "2026-08-14T10:18:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+
+  #################################################################
+  # Reviewer 1-only target 3: text-experience finding
+  #################################################################
+
+  hsann:EnjoymentClaim
+      a mp:Claim ;
+      rdfs:label "NanoAdventure was more enjoyable than the textbook"@en ;
+      mp:statement
+          "Participants rated NanoAdventure as more enjoyable and fun than the textbook condition."@en .
+
+  hsann:EnjoymentData
+      a mp:Data ;
+      rdfs:label "Reported NanoAdventure text-experience comparison"@en ;
+      dct:source hsann:EnjoymentTarget ;
+      mp:supports hsann:EnjoymentClaim .
+
+  hsann:EnjoymentTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Hudson-Smith2023_Publication ;
+      bibo:pages "2275" ;
+      oa:hasSelector hsann:EnjoymentSelector .
+
+  hsann:EnjoymentSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "For statement Q34 (“I enjoyed the text”), the NanoAdventure Game was rated significantly higher than the Textbook group (p = 0.0214), and for statement Q36 (“The text was fun to read”), the NanoAdventure game was rated the most highly and significantly higher than the textbook group."@en .
+
+  hsann:EnjoymentAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Extraction of the NanoAdventure enjoyment finding"@en ;
+      oa:motivatedBy oa:describing ;
+      oa:hasBody hsann:EnjoymentClaim ;
+      oa:hasTarget hsann:EnjoymentTarget ;
+      prov:wasAttributedTo hsann:Reviewer1 ;
+      prov:wasGeneratedBy hsann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-14T09:25:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+
+  #################################################################
+  # Adjudication retains both inputs and records the accepted code
+  #################################################################
+
+  hsann:BloomAdjudication
+      a prov:Activity, review:AdjudicationActivity ;
+      rdfs:label "Adjudication of the Bloom coding disagreement"@en ;
+      prov:wasAssociatedWith hsann:Reviewer1, hsann:Reviewer2 ;
+      prov:used
+          hsann:BloomUnderstandAnnotation,
+          hsann:BloomRememberAnnotation_R2,
+          hsann:CodingManualVersion_0_1_0,
+          hsann:BloomCodebookVersion_0_2_0 ;
+      prov:startedAtTime "2026-08-14T14:00:00+02:00"^^xsd:dateTime ;
+      prov:endedAtTime "2026-08-14T14:15:00+02:00"^^xsd:dateTime .
+
+  hsann:BloomUnderstandAnnotation_Adjudicated
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Adjudicated Bloom Understand coding"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody bloom:RevisedUnderstand ;
+      oa:hasTarget hsann:BloomUnderstandTarget ;
+      dct:description
+          "The reviewers retained Understand because the passage states a goal of communicating the meaning of scale and nanotechnology, rather than merely recalling terminology."@en ;
+      prov:wasAttributedTo hsann:Reviewer1, hsann:Reviewer2 ;
+      prov:wasGeneratedBy hsann:BloomAdjudication ;
+      prov:wasDerivedFrom
+          hsann:BloomUnderstandAnnotation,
+          hsann:BloomRememberAnnotation_R2 ;
+      prov:generatedAtTime "2026-08-14T14:15:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion hsann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion hsann:BloomCodebookVersion_0_2_0 ;
+      review:hasStatus review:Accepted .
+}

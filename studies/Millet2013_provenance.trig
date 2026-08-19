@@ -1,0 +1,353 @@
+@prefix study:  <http://www.learn-graph.net/nanodidax/studies/> .
+@prefix mlann:  <http://www.learn-graph.net/nanodidax/annotations/Millet2013/> .
+@prefix review: <http://www.learn-graph.net/nanodidax/review/> .
+@prefix bloom:  <http://www.learn-graph.net/thesauri/bloom_outcomes/> .
+@prefix meth:   <http://www.learn-graph.net/nanodidax/schemes/methods/> .
+@prefix feat:   <http://www.learn-graph.net/nanodidax/schemes/features/> .
+@prefix oa:     <http://www.w3.org/ns/oa#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix mp:     <http://purl.org/mp/> .
+@prefix bibo:   <http://purl.org/ontology/bibo/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://www.learn-graph.net/nanodidax/graphs/Millet2013-provenance> {
+
+  #################################################################
+  # Source, agents, versions, and workflow terms
+  #################################################################
+
+  study:Millet2013_Publication
+      a dct:BibliographicResource, prov:Entity ;
+      rdfs:label "Millet et al. (2013)"@en ;
+      dct:title
+          "Haptics and graphic analogies for the understanding of atomic force microscopy"@en ;
+      dct:creator "Millet et al." ;
+      dct:issued "2013"^^xsd:gYear ;
+      dct:identifier <https://doi.org/10.1016/j.ijhcs.2012.12.005> ;
+      bibo:doi "10.1016/j.ijhcs.2012.12.005" .
+
+  mlann:Reviewer1
+      a prov:Person, prov:Agent ;
+      rdfs:label "Reviewer 1"@en .
+
+  mlann:Reviewer2
+      a prov:Person, prov:Agent ;
+      rdfs:label "Reviewer 2"@en .
+
+  mlann:CodingManualVersion_0_1_0
+      a prov:Entity ;
+      dct:title "Nano-education review coding manual"@en ;
+      dct:identifier "0.1.0" .
+
+  mlann:BloomCodebookVersion_0_2_0
+      a prov:Entity ;
+      dct:title "Bloom cognitive taxonomies tutorial codebook"@en ;
+      dct:identifier "0.2.0" ;
+      dct:source bloom:BloomCognitiveTaxonomies .
+
+  mlann:ResearchMethodsCodebookVersion_0_2_0
+      a prov:Entity ;
+      dct:title "Research methods thesaurus"@en ;
+      dct:identifier "0.2.0" ;
+      dct:source meth:Methods .
+
+  mlann:TechnologyFeaturesCodebookVersion_0_1_0
+      a prov:Entity ;
+      dct:title "Technology feature types"@en ;
+      dct:identifier "0.1.0" ;
+      dct:source feat:Features .
+
+  review:IndependentCodingActivity
+      a rdfs:Class ;
+      rdfs:label "independent coding activity"@en .
+
+  review:AdjudicationActivity
+      a rdfs:Class ;
+      rdfs:label "adjudication activity"@en .
+
+  review:usedCodingManualVersion
+      a rdf:Property ;
+      rdfs:label "used coding-manual version"@en .
+
+  review:usedCodebookVersion
+      a rdf:Property ;
+      rdfs:label "used codebook version"@en .
+
+  review:hasStatus
+      a rdf:Property ;
+      rdfs:label "has review status"@en .
+
+  review:Accepted
+      a skos:Concept ;
+      skos:prefLabel "accepted"@en .
+
+  review:Superseded
+      a skos:Concept ;
+      skos:prefLabel "superseded"@en ;
+      skos:scopeNote
+          "The coding act remains in the record but has been replaced by a later decision."@en .
+
+
+  #################################################################
+  # Independent coding sessions
+  #################################################################
+
+  mlann:Reviewer1CodingSession
+      a prov:Activity, review:IndependentCodingActivity ;
+      rdfs:label "Reviewer 1 independent coding session"@en ;
+      prov:wasAssociatedWith mlann:Reviewer1 ;
+      prov:used
+          study:Millet2013_Publication,
+          mlann:CodingManualVersion_0_1_0,
+          mlann:BloomCodebookVersion_0_2_0,
+          mlann:ResearchMethodsCodebookVersion_0_2_0,
+          mlann:TechnologyFeaturesCodebookVersion_0_1_0 ;
+      prov:startedAtTime "2026-08-18T09:00:00+02:00"^^xsd:dateTime ;
+      prov:endedAtTime "2026-08-18T09:30:00+02:00"^^xsd:dateTime .
+
+  mlann:Reviewer2CodingSession
+      a prov:Activity, review:IndependentCodingActivity ;
+      rdfs:label "Reviewer 2 independent coding session"@en ;
+      prov:wasAssociatedWith mlann:Reviewer2 ;
+      prov:used
+          study:Millet2013_Publication,
+          mlann:CodingManualVersion_0_1_0,
+          mlann:BloomCodebookVersion_0_2_0 ;
+      prov:startedAtTime "2026-08-18T10:00:00+02:00"^^xsd:dateTime ;
+      prov:endedAtTime "2026-08-18T10:25:00+02:00"^^xsd:dateTime .
+
+
+  #################################################################
+  # Corpus-level classifications for cross-study queries
+  #################################################################
+
+  mlann:HapticTechnologyTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Millet2013_Publication ;
+      bibo:pages "613" ;
+      oa:hasSelector mlann:HapticTechnologySelector .
+
+  mlann:HapticTechnologySelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "The experimental system, illustrated in Fig. 3, comprises a real-time simulation of the AR phenomenon, along with a 3D computer graphics interface and a force-feedback device."@en .
+
+  mlann:HapticTechnologyAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Scanning-probe haptic-interface coding of Millet et al. (2013)"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody feat:ScanningProbeHaptics ;
+      oa:hasTarget mlann:HapticTechnologyTarget ;
+      dct:description
+          "The code concerns the force-feedback interface used to render the simulated AFM tip-sample interaction."@en ;
+      prov:wasAttributedTo mlann:Reviewer1 ;
+      prov:wasGeneratedBy mlann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-18T09:08:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion mlann:TechnologyFeaturesCodebookVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+  mlann:RandomizedExperimentTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Millet2013_Publication ;
+      bibo:pages "615" ;
+      oa:hasSelector mlann:RandomizedExperimentSelector .
+
+  mlann:RandomizedExperimentSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "Participants were randomly assigned to one of the four experimental groups in the experimental design."@en .
+
+  mlann:RandomizedExperimentAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Randomized-experiment coding of Millet et al. (2013)"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody meth:RandomizedExperiment ;
+      oa:hasTarget mlann:RandomizedExperimentTarget ;
+      dct:description
+          "This classification describes the 2 x 2 evaluation design, not the three learning activities represented as Millet2013_A1, Millet2013_A2, and Millet2013_A3."@en ;
+      prov:wasAttributedTo mlann:Reviewer1 ;
+      prov:wasGeneratedBy mlann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-18T09:10:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion mlann:ResearchMethodsCodebookVersion_0_2_0 ;
+      review:hasStatus review:Accepted .
+
+
+  #################################################################
+  # Shared target 1: cognitive coding of activity A2
+  #################################################################
+
+  mlann:AnalogyLearningTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Millet2013_Publication ;
+      bibo:pages "608" ;
+      oa:hasSelector mlann:AnalogyLearningSelector .
+
+  mlann:AnalogyLearningSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "The results from experiments carried out with 45 students indicate that a “magnet-spring” analogy helped beginners to establish the link between the behavior of a probe and its force–distance curve."@en .
+
+  mlann:AnalogyUnderstandAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Reviewer 1: Bloom Understand coding of activity A2"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody bloom:RevisedUnderstand ;
+      oa:hasTarget mlann:AnalogyLearningTarget ;
+      dct:description
+          "The analogy is intended to help learners explain a relation between representations, which Reviewer 1 classified as Understand."@en ;
+      prov:wasAttributedTo mlann:Reviewer1 ;
+      prov:wasGeneratedBy mlann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-18T09:12:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion mlann:BloomCodebookVersion_0_2_0 ;
+      review:hasStatus review:Superseded .
+
+  mlann:AnalogyAnalyzeAnnotation_R2
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Reviewer 2: Bloom Analyze coding of activity A2"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody bloom:RevisedAnalyze ;
+      oa:hasTarget mlann:AnalogyLearningTarget ;
+      dct:description
+          "Reviewer 2 treated establishing the relation between probe behavior and the curve as organizing parts of a representation."@en ;
+      prov:wasAttributedTo mlann:Reviewer2 ;
+      prov:wasGeneratedBy mlann:Reviewer2CodingSession ;
+      prov:generatedAtTime "2026-08-18T10:10:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion mlann:BloomCodebookVersion_0_2_0 ;
+      review:hasStatus review:Superseded .
+
+
+  #################################################################
+  # Shared target 2: haptic finding (agreement)
+  #################################################################
+
+  mlann:HapticStiffnessClaim
+      a mp:Claim ;
+      rdfs:label "Haptic feedback supported perception of cantilever stiffness"@en ;
+      mp:statement
+          "Haptic feedback focused learners on forces and supported their perception of the effect of cantilever stiffness."@en .
+
+  mlann:HapticStiffnessData
+      a mp:Data ;
+      rdfs:label "Reported haptic stiffness result"@en ;
+      dct:source mlann:HapticStiffnessTarget ;
+      mp:supports mlann:HapticStiffnessClaim .
+
+  mlann:HapticStiffnessTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Millet2013_Publication ;
+      bibo:pages "623" ;
+      oa:hasSelector mlann:HapticStiffnessSelector .
+
+  mlann:HapticStiffnessSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "By focusing attention on forces, haptic feedback proved thus useful for perceiving the effect of the cantilever stiffness."@en .
+
+  mlann:HapticStiffnessAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Reviewer 1: extraction of the haptic stiffness finding"@en ;
+      oa:motivatedBy oa:describing ;
+      oa:hasBody mlann:HapticStiffnessClaim ;
+      oa:hasTarget mlann:HapticStiffnessTarget ;
+      prov:wasAttributedTo mlann:Reviewer1 ;
+      prov:wasGeneratedBy mlann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-18T09:20:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+  mlann:HapticStiffnessAnnotation_R2
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Reviewer 2: extraction of the haptic stiffness finding"@en ;
+      oa:motivatedBy oa:describing ;
+      oa:hasBody mlann:HapticStiffnessClaim ;
+      oa:hasTarget mlann:HapticStiffnessTarget ;
+      prov:wasAttributedTo mlann:Reviewer2 ;
+      prov:wasGeneratedBy mlann:Reviewer2CodingSession ;
+      prov:generatedAtTime "2026-08-18T10:18:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+
+  #################################################################
+  # Reviewer 1-only target 3: analogy finding
+  #################################################################
+
+  mlann:AnalogyFindingClaim
+      a mp:Claim ;
+      rdfs:label "The magnet-spring analogy supported initial understanding"@en ;
+      mp:statement
+          "The magnet-spring analogy supported novices' initial understanding of the AFM approach-retract phenomenon and its force-distance curve."@en .
+
+  mlann:AnalogyFindingData
+      a mp:Data ;
+      rdfs:label "Reported magnet-spring analogy result"@en ;
+      dct:source mlann:AnalogyFindingTarget ;
+      mp:supports mlann:AnalogyFindingClaim .
+
+  mlann:AnalogyFindingTarget
+      a oa:SpecificResource ;
+      oa:hasSource study:Millet2013_Publication ;
+      bibo:pages "623" ;
+      oa:hasSelector mlann:AnalogyFindingSelector .
+
+  mlann:AnalogyFindingSelector
+      a oa:TextQuoteSelector ;
+      oa:exact
+          "Overall, the data suggests that the magnet-spring analogy could be useful for explaining to people without any prior knowledge the AR phenomenon and the link with its force–distance curve."@en .
+
+  mlann:AnalogyFindingAnnotation
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Extraction of the magnet-spring analogy finding"@en ;
+      oa:motivatedBy oa:describing ;
+      oa:hasBody mlann:AnalogyFindingClaim ;
+      oa:hasTarget mlann:AnalogyFindingTarget ;
+      prov:wasAttributedTo mlann:Reviewer1 ;
+      prov:wasGeneratedBy mlann:Reviewer1CodingSession ;
+      prov:generatedAtTime "2026-08-18T09:25:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:hasStatus review:Accepted .
+
+
+  #################################################################
+  # Adjudication retains both inputs and accepts Understand
+  #################################################################
+
+  mlann:AnalogyBloomAdjudication
+      a prov:Activity, review:AdjudicationActivity ;
+      rdfs:label "Adjudication of the activity A2 Bloom disagreement"@en ;
+      prov:wasAssociatedWith mlann:Reviewer1, mlann:Reviewer2 ;
+      prov:used
+          mlann:AnalogyUnderstandAnnotation,
+          mlann:AnalogyAnalyzeAnnotation_R2,
+          mlann:CodingManualVersion_0_1_0,
+          mlann:BloomCodebookVersion_0_2_0 ;
+      prov:startedAtTime "2026-08-18T14:00:00+02:00"^^xsd:dateTime ;
+      prov:endedAtTime "2026-08-18T14:15:00+02:00"^^xsd:dateTime .
+
+  mlann:AnalogyUnderstandAnnotation_Adjudicated
+      a oa:Annotation, prov:Entity ;
+      rdfs:label "Adjudicated Bloom Understand coding of activity A2"@en ;
+      oa:motivatedBy oa:classifying ;
+      oa:hasBody bloom:RevisedUnderstand ;
+      oa:hasTarget mlann:AnalogyLearningTarget ;
+      dct:description
+          "The reviewers retained Understand because the instructional role of the analogy is to help novices explain the relation between the AFM probe behavior and its force-distance representation; Analyze would require a more explicit decomposition task."@en ;
+      prov:wasAttributedTo mlann:Reviewer1, mlann:Reviewer2 ;
+      prov:wasGeneratedBy mlann:AnalogyBloomAdjudication ;
+      prov:wasDerivedFrom
+          mlann:AnalogyUnderstandAnnotation,
+          mlann:AnalogyAnalyzeAnnotation_R2 ;
+      prov:generatedAtTime "2026-08-18T14:15:00+02:00"^^xsd:dateTime ;
+      review:usedCodingManualVersion mlann:CodingManualVersion_0_1_0 ;
+      review:usedCodebookVersion mlann:BloomCodebookVersion_0_2_0 ;
+      review:hasStatus review:Accepted .
+}
