@@ -119,14 +119,11 @@ Expected result: Höst et al. (*Virtual reality*), Lan and Azimi (*Virtual labor
 ## Repository contents
 
 ``` text
-semrevtut/
-├── manuscript-v1.qmd       Tutorial manuscript
-├── references.bib          Bibliography used by the manuscript
+semrevtutorial-resources/
+├── references.bib          Bibliographic materials
 ├── code_books/             Local and reused SKOS concept schemes
 ├── studies/                Successive Millet snapshots and study examples
 ├── queries/                Saved SPARQL retrieval and checking queries
-├── media/                  Figures and supporting screenshots
-├── semrevtut.Rproj         RStudio project metadata
 ├── LICENSE                 GNU General Public License v3
 └── README.md               Project overview and executable guide
 ```
@@ -155,10 +152,6 @@ The three Millet files are cumulative conceptual stages, but each is an independ
 ### `queries/`
 
 The saved `.rq` files are executable documentation. They demonstrate vocabulary traversal, annotation retrieval, claim retrieval, disagreement detection, selection of accepted records, provenance checks, cross-study joins, and hierarchical technology retrieval. Together with the exact RDF inputs and expected results above, they form the computationally reproducible part of the tutorial.
-
-### `media/`
-
-This directory contains the tutorial’s conceptual overview, annotation-model figure, and supporting diagrams or ARQ output screenshots used during manuscript development.
 
 ## Representation standards
 
