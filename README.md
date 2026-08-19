@@ -16,7 +16,7 @@ The workflow improves computational reproducibility, procedural reproducibility,
 
 ## Tutorial structure
 
-The full tutorial is in [`manuscript-v1.qmd`](manuscript-v1.qmd). Its worked examples follow this progression:
+Its worked examples follow this progression:
 
 | Stage | Main idea | Data and queries |
 |----|----|----|
