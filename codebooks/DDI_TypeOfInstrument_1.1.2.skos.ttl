@@ -1,0 +1,117 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX toi:     <http://rdf-vocabulary.ddialliance.org/cv/TypeOfInstrument/1.1.2/>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+toi:6311ae1
+        rdf:type         skos:Concept;
+        skos:definition  "Use when the type of instrument is known, but not found in the list."@en;
+        skos:inScheme    toi:;
+        skos:notation    "Other"@en;
+        skos:prefLabel   "Other"@en .
+
+toi:c23aada
+        rdf:type         skos:Concept;
+        skos:definition  "Programming script written in a data query language that is used to extract specific data, for instance from online social networks."@en;
+        skos:inScheme    toi:;
+        skos:notation    "ProgrammingScript"@en;
+        skos:prefLabel   "Programming script"@en .
+
+toi:0e33f36
+        rdf:type         skos:Concept;
+        skos:definition  "Instruments used to collect objective data like measurements, images, etc. For example, chronometers, scales, speedometers, blood pressure monitors, thermometers, x-ray machines, etc."@en;
+        skos:inScheme    toi:;
+        skos:notation    "TechnicalInstruments"@en;
+        skos:prefLabel   "Technical instrument(s)"@en .
+
+toi:473938a
+        rdf:type         skos:Concept;
+        skos:definition  "A description of tasks that participants are asked to carry out as a part of the data collection process. For example, marking places on a map, taking photographs, telling a fairy tale, etc."@en;
+        skos:inScheme    toi:;
+        skos:notation    "ParticipantTasks"@en;
+        skos:prefLabel   "Participant tasks"@en .
+
+toi:439cdd3
+        rdf:type         skos:Concept;
+        skos:definition  "Guidelines specifying what data are to be collected from previously existing sources originally created for other purposes. For example, directions on how to select and code data from qualitative sources to create a quantitative dataset."@en;
+        skos:inScheme    toi:;
+        skos:notation    "DataCollectionGuidelines.SecondaryDataCollectionGuide"@en;
+        skos:prefLabel   "Data collection guidelines: Secondary data collection guide"@en .
+
+toi:bf31e36
+        rdf:type         skos:Concept;
+        skos:definition  "Guidelines regarding the desired, or expected content of self-written personal accounts or narratives from potential participants. The instructions can be supplied as part of the writing invitation or separately. For example, an invitation asking people suffering from a specific disease or disability to describe how it affects their feelings, social relations, and everyday life; or a writing invitation asking people to keep a diary of books read during a period of six months and the thoughts provoked by the books."@en;
+        skos:inScheme    toi:;
+        skos:notation    "DataCollectionGuidelines.SelfAdministeredWritingsGuide"@en;
+        skos:prefLabel   "Data collection guidelines: Self-administered writings guide"@en .
+
+toi:1c6dc57
+        rdf:type         skos:Concept;
+        skos:definition  "Guidelines for a group discussion. Depending on the study design, a discussion guide can be more or less structured, ranging from exactly formulated questions to general ideas on what to discuss. For example, a list of topics to be discussed in a focus group, or themes formulated by a researcher to direct a blog discussion, etc."@en;
+        skos:inScheme    toi:;
+        skos:notation    "DataCollectionGuidelines.DiscussionGuide"@en;
+        skos:prefLabel   "Data collection guidelines: Discussion guide"@en .
+
+toi:732a2a6
+        rdf:type         skos:Concept;
+        skos:definition  "Guidelines regarding what will be observed. Depending on the study design, an observation guide can be more or less structured, ranging from exact specifications and scales to loosely formulated ideas."@en;
+        skos:inScheme    toi:;
+        skos:notation    "DataCollectionGuidelines.ObservationGuide"@en;
+        skos:prefLabel   "Data collection guidelines: Observation guide"@en .
+
+toi:2399f21
+        rdf:type         skos:Concept;
+        skos:definition  "Directions or instructions regarding the methods and procedures to be used for collecting the data. Use a more specific term if possible."@en;
+        skos:inScheme    toi:;
+        skos:narrower    toi:439cdd3 , toi:bf31e36 , toi:1c6dc57 , toi:732a2a6;
+        skos:notation    "DataCollectionGuidelines"@en;
+        skos:prefLabel   "Data collection guidelines"@en .
+
+toi:c2d7227
+        rdf:type         skos:Concept;
+        skos:definition  "Themes, topics, and/or questions used in an interview. Can vary between loosely defined themes to more exactly formulated questions. There is more flexibility than in an unstructured questionnaire regarding which questions are asked of each participant and how they are conveyed."@en;
+        skos:inScheme    toi:;
+        skos:notation    "InterviewSchemeAndThemes"@en;
+        skos:prefLabel   "Interview scheme and/or themes"@en .
+
+toi:8acc4c6
+        rdf:type         skos:Concept;
+        skos:definition  "Set of pre-determined questions, a great majority of which are open-ended, although there may be a small proportion of close-ended questions."@en;
+        skos:inScheme    toi:;
+        skos:notation    "Questionnaire.Unstructured"@en;
+        skos:prefLabel   "Unstructured questionnaire"@en .
+
+toi:db1f13d
+        rdf:type         skos:Concept;
+        skos:definition  "Set of pre-determined questions, a significant proportion of which are open-ended (roughly one third to two thirds), and the rest are closed-ended."@en;
+        skos:inScheme    toi:;
+        skos:notation    "Questionnaire.Semistructured"@en;
+        skos:prefLabel   "Semi-structured questionnaire"@en .
+
+toi:aa1571e
+        rdf:type         skos:Concept;
+        skos:definition  "Set of pre-determined questions, a great majority of which are closed-ended, although there may be a small proportion of open-ended questions."@en;
+        skos:inScheme    toi:;
+        skos:notation    "Questionnaire.Structured"@en;
+        skos:prefLabel   "Structured questionnaire"@en .
+
+toi:179d692
+        rdf:type         skos:Concept;
+        skos:definition  "Set of pre-determined questions presented to study participants."@en;
+        skos:inScheme    toi:;
+        skos:narrower    toi:8acc4c6 , toi:db1f13d , toi:aa1571e;
+        skos:notation    "Questionnaire"@en;
+        skos:prefLabel   "Questionnaire"@en .
+
+toi:
+        rdf:type             skos:ConceptScheme;
+        dcterms:description  "Includes a typology of data collection instruments."@en;
+        dcterms:isVersionOf  <http://rdf-vocabulary.ddialliance.org/cv/TypeOfInstrument/>;
+        dcterms:license      <http://creativecommons.org/licenses/by/4.0/>;
+        dcterms:rights       "Copyright ©DDI Alliance 2019";
+        dcterms:title        "Type of Instrument"@en;
+        owl:versionInfo      "1.1.2";
+        skos:hasTopConcept   toi:6311ae1 , toi:c23aada , toi:0e33f36 , toi:473938a , toi:2399f21 , toi:c2d7227 , toi:179d692;
+        skos:notation        "TypeOfInstrument"@en;
+        skos:prefLabel       "Type of Instrument"@en .

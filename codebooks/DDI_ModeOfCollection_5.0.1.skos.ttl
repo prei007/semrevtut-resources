@@ -1,0 +1,394 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX moc:     <http://rdf-vocabulary.ddialliance.org/cv/ModeOfCollection/5.0.1/>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+moc:6311ae1
+        rdf:type         skos:Concept;
+        skos:definition  "Use if the mode of data collection is known, but not found in the list."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Other"@en;
+        skos:prefLabel   "Other"@en .
+
+moc:27daf03
+        rdf:type         skos:Concept;
+        skos:definition  "Assessment of personality traits or psychological/behavioral responses by means of specialized measures or tests. For example, objective tests like self-report measures with a restricted response format, or projective methods allowing free responses, including word association, sentence or story completion, vignettes, cartoon test, thematic apperception tests, role play, drawing tests, inkblot tests, choice ordering exercises, etc."@en;
+        skos:inScheme    moc:;
+        skos:notation    "MeasurementsAndTests.Psychological"@en;
+        skos:prefLabel   "Psychological measurements and tests"@en .
+
+moc:c2a25a6
+        rdf:type         skos:Concept;
+        skos:definition  "Assessment of physical properties of living beings, objects, materials, or natural phenomena. For example, findings from hands-on medical examination (e.g., palpation or auscultation), clinical measurements and lab tests like blood analysis, blood pressure, heart rate, body weight and height, as well as general measurements like time, distance, mass, temperature, force, power, speed, GPS data on physical movement and other physical parameters or variables, like geospatial data."@en;
+        skos:inScheme    moc:;
+        skos:notation    "MeasurementsAndTests.Physical"@en;
+        skos:prefLabel   "Physical measurements and tests"@en .
+
+moc:4b9776b
+        rdf:type         skos:Concept;
+        skos:definition  "Assessment of knowledge, skills, aptitude, or educational achievement by means of specialized measures or tests."@en;
+        skos:inScheme    moc:;
+        skos:notation    "MeasurementsAndTests.Educational"@en;
+        skos:prefLabel   "Educational measurements and tests"@en .
+
+moc:47bfda9
+        rdf:type         skos:Concept;
+        skos:definition  "Standardized tasks or assessments designed to evaluate mental processes such as memory, attention, perception, reasoning, problem solving, and language comprehension. These tests aim to objectively measure cognitive abilities and are commonly used in research on aging, brain function, and clinical diagnostics. Examples include intelligence tests such as the Wechsler Adult Intelligence Scale (WAIS) and Raven's Progressive Matrices; tasks evaluating attention, concentration, and working memory such as the Montreal Cognitive Assessment (MoCA); as well as reaction time experiments, verbal fluency tests, and others."@en;
+        skos:inScheme    moc:;
+        skos:notation    "MeasurementsAndTests.Cognitive"@en;
+        skos:prefLabel   "Cognitive measurements and tests"@en .
+
+moc:38ceaa4
+        rdf:type         skos:Concept;
+        skos:definition  "Assessing specific properties (or characteristics) of beings, things, phenomena, (and/ or processes) by applying pre-established standards and/or specialized instruments or techniques."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:27daf03 , moc:c2a25a6 , moc:4b9776b , moc:47bfda9;
+        skos:notation    "MeasurementsAndTests"@en;
+        skos:prefLabel   "Measurements and tests"@en .
+
+moc:4f502b5
+        rdf:type         skos:Concept;
+        skos:definition  "Modeling or imitative representation of real-world processes, events, or systems, often using computer programs. For example, a program modeling household consumption responses to indirect tax changes; or a dataset on hypothetical patients and their drug exposure, background conditions, and known adverse events."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Simulation"@en;
+        skos:prefLabel   "Simulation"@en .
+
+moc:d9ceca6
+        rdf:type         skos:Concept;
+        skos:definition  "Statistics that relate to broad classes, groups, or categories. The data are averaged, totaled, or otherwise derived from individual-level data, and it is no longer possible to distinguish the characteristics of individuals within those classes, groups, or categories. For example, the number and age group of the unemployed in specific geographic regions, or national level statistics on the occurrence of specific offences, originally derived from the statistics of individual police districts."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Aggregation"@en;
+        skos:prefLabel   "Aggregation"@en .
+
+moc:2906121
+        rdf:type         skos:Concept;
+        skos:definition  "Presentation of information in a condensed form, by reducing it to its main points. For example, abstracts of interviews or reports that are published and used as data rather than the full-length interviews or reports."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Summary"@en;
+        skos:prefLabel   "Summary"@en .
+
+moc:6decc77
+        rdf:type         skos:Concept;
+        skos:definition  "Collecting and assembling data from multiple, often heterogeneous sources that have one or more reference points in common, and at least one of the sources was originally produced for other purposes. The data are incorporated in a new entity. For example, providing data on the number of universities in the last 150 years using a variety of available sources (e.g. finance documents, official statistics, university registers), combining survey data with information about geographical areas from official statistics (e.g. population density, doctors per capita, etc.), or with social media data, etc."@en;
+        skos:inScheme    moc:;
+        skos:notation    "CompilationSynthesis"@en;
+        skos:prefLabel   "Compilation/Synthesis"@en .
+
+moc:df9aac3
+        rdf:type         skos:Concept;
+        skos:definition  "Capturing information in writing from a different source, or from a different medium, alphabet, or form of notation, like scientific formulae, or musical notes. For transcribed interviews or observations, it is recommended to document the primary mode of collection, using one of the interview or observation terms."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Transcription"@en;
+        skos:prefLabel   "Transcription"@en .
+
+moc:4848ed5
+        rdf:type         skos:Concept;
+        skos:definition  "As a mode of secondary data collection, content coding applies coding techniques to transform qualitative data (textual, video, audio or still-image) originally produced for other purposes into quantitative data (expressed in unit-by-variable matrices) in accordance with pre-defined categorization schemes. For example, coded party manifesto data like the \"European Parliament Election Study 2009, Manifesto Study\" (doi:10.4232/1.10204)."@en;
+        skos:inScheme    moc:;
+        skos:notation    "ContentCoding"@en;
+        skos:prefLabel   "Content coding"@en .
+
+moc:d759f9a
+        rdf:type         skos:Concept;
+        skos:definition  "A technique employed to extract large amounts of data from websites and save it to a local file or database for further processing or storage. Also called screen scraping, web data extraction, web harvesting, etc."@en;
+        skos:inScheme    moc:;
+        skos:notation    "AutomatedDataExtraction.WebScraping"@en;
+        skos:prefLabel   "Automated data extraction: Web scraping"@en .
+
+moc:613d44d
+        rdf:type         skos:Concept;
+        skos:definition  "Retrieving information from databases through a query to the database to extract only the information required, saving it to a local file or database for further processing or storage."@en;
+        skos:inScheme    moc:;
+        skos:notation    "AutomatedDataExtraction.DatabaseQuery"@en;
+        skos:prefLabel   "Automated data extraction: Database query"@en .
+
+moc:0998f59
+        rdf:type         skos:Concept;
+        skos:definition  "Retrieving information from online data sources through an API (application programming interface) to save it to a local file or database for further processing or storage."@en;
+        skos:inScheme    moc:;
+        skos:notation    "AutomatedDataExtraction.ApiQuery"@en;
+        skos:prefLabel   "Automated data extraction: API query"@en .
+
+moc:c867d80
+        rdf:type         skos:Concept;
+        skos:definition  "Using automated means to retrieve information from data sources and save it to a local file or database for further processing or storage. Use this term if it is not known what kind of automated technique has been used or if the technique is known but not listed as a narrower term."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:d759f9a , moc:613d44d , moc:0998f59;
+        skos:notation    "AutomatedDataExtraction"@en;
+        skos:prefLabel   "Automated data extraction"@en .
+
+moc:f25ffb0
+        rdf:type         skos:Concept;
+        skos:definition  "Collecting information on objects or phenomena without physical contact with them, using remote sensors on satellites and aircraft (planes, drones, weather balloons). Often used to gather information on the Earth’s surface, atmosphere and oceans. For example, damage assessment after an earthquake or forest fires. The technique is also used for military, commercial, economic and other applications."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Recording.RemoteSensing"@en;
+        skos:prefLabel   "Recording: Remote sensing"@en .
+
+moc:c5564d2
+        rdf:type         skos:Concept;
+        skos:definition  "Registering by mechanical or electronic means, in a form that allows the information to be retrieved and/or reproduced. For example, images or sounds on disc or magnetic tape."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:f25ffb0;
+        skos:notation    "Recording"@en;
+        skos:prefLabel   "Recording"@en .
+
+moc:ed0d083
+        rdf:type         skos:Concept;
+        skos:definition  "An experiment conducted in the virtual setting of the World Wide Web, in which experimental materials are programmed to implement artificial situations or events to be investigated in a distributed environment. (Reips, U.-D. (2002). Theory and techniques of Web experimenting. In B. Batinic, U.-D. Reips, & M. Bosnjak (Eds.), Online Social Sciences. Seattle: Hogrefe & Huber. Available at: http://www.websm.org/uploadi/editor/Reips_2002_Theory_and_techniques.pdf [07 June 2013])"@en;
+        skos:inScheme    moc:;
+        skos:notation    "Experiment.WebBased"@en;
+        skos:prefLabel   "Web-based experiment"@en .
+
+moc:5ff61de
+        rdf:type         skos:Concept;
+        skos:definition  "An experiment conducted in a natural, uncontrolled setting, in which the researcher manipulates one or several independent variables. Intervention/clinical studies are one example of field experiments."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Experiment.FieldIntervention"@en;
+        skos:prefLabel   "Field/Intervention experiment"@en .
+
+moc:28a60a6
+        rdf:type         skos:Concept;
+        skos:definition  "An experiment conducted in a controlled, artificially created physical setting, in which a researcher manipulates one or several independent variables and measures its/their effect on the dependent variable."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Experiment.Laboratory"@en;
+        skos:prefLabel   "Laboratory experiment"@en .
+
+moc:05aeba4
+        rdf:type         skos:Concept;
+        skos:definition  "Research method involving the manipulation of some or all of the independent variables included in the hypotheses."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:ed0d083 , moc:5ff61de , moc:28a60a6;
+        skos:notation    "Experiment"@en;
+        skos:prefLabel   "Experiment"@en .
+
+moc:40b8b0c
+        rdf:type         skos:Concept;
+        skos:definition  "Type of observation in which data regarding computer usage are being collected by software that can be built into the computer program itself or can be a separate program. Information may be collected about the number of users, the ways in which users interact with the program(s), how much time they spend on a page, how they use specific sections of applications, how they navigate from page to page or from one application to another, etc."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Observation.ComputerBased"@en;
+        skos:prefLabel   "Computer-based observation"@en .
+
+moc:68b02fb
+        rdf:type         skos:Concept;
+        skos:definition  "Type of laboratory observation that is conducted without any interaction between the researcher and his/her subjects."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Observation.Laboratory.Nonparticipant"@en;
+        skos:prefLabel   "Non-participant laboratory observation"@en .
+
+moc:2a58349
+        rdf:type         skos:Concept;
+        skos:definition  "Type of laboratory observation in which the researcher interacts with the subjects and often plays a role in the social situation under observation. For example, observing children's play in a laboratory playroom with the researcher taking part in the play."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Observation.Laboratory.Participant"@en;
+        skos:prefLabel   "Participant laboratory observation"@en .
+
+moc:e679c7f
+        rdf:type         skos:Concept;
+        skos:definition  "Observation that is conducted in a controlled, artificially created setting. For example, observing children's play in a laboratory playroom."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:68b02fb , moc:2a58349;
+        skos:notation    "Observation.Laboratory"@en;
+        skos:prefLabel   "Laboratory observation"@en .
+
+moc:8245871
+        rdf:type         skos:Concept;
+        skos:definition  "Observation that is conducted in a natural, non-controlled setting without any interaction between the researcher and his/her subjects."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Observation.Field.Nonparticipant"@en;
+        skos:prefLabel   "Non-participant field observation"@en .
+
+moc:3cee522
+        rdf:type         skos:Concept;
+        skos:definition  "Type of field observation in which the researcher interacts with the subjects and often plays a role in the social situation under observation."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Observation.Field.Participant"@en;
+        skos:prefLabel   "Participant field observation"@en .
+
+moc:bdc4aac
+        rdf:type         skos:Concept;
+        skos:definition  "Observation that is conducted in a natural environment."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:8245871 , moc:3cee522;
+        skos:notation    "Observation.Field"@en;
+        skos:prefLabel   "Field observation"@en .
+
+moc:c680d43
+        rdf:type         skos:Concept;
+        skos:definition  "Research method that involves collecting data as they occur (for example, observing behaviors, events, development of condition or disease, etc.), without attempting to manipulate any of the independent variables."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:40b8b0c , moc:e679c7f , moc:bdc4aac;
+        skos:notation    "Observation"@en;
+        skos:prefLabel   "Observation"@en .
+
+moc:9e67a7c
+        rdf:type         skos:Concept;
+        skos:definition  "Narratives, stories, diaries, and written texts gathered from Internet sources, e.g. websites, blogs, discussion forums."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredWritingsAndDiaries.WebBased"@en;
+        skos:prefLabel   "Self-administered writings and/or diaries: Web-based"@en .
+
+moc:e5bef42
+        rdf:type         skos:Concept;
+        skos:definition  "Narratives, stories, diaries, and written texts created and collected in paper form."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredWritingsAndDiaries.Paper"@en;
+        skos:prefLabel   "Self-administered writings and/or diaries: Paper"@en .
+
+moc:fe226ad
+        rdf:type         skos:Concept;
+        skos:definition  "Narratives, stories, diaries, and written texts submitted via e-mail messages."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredWritingsAndDiaries.Email"@en;
+        skos:prefLabel   "Self-administered writings and/or diaries: E-mail"@en .
+
+moc:08e658a
+        rdf:type         skos:Concept;
+        skos:definition  "Narratives, stories, diaries, and written texts created by the research subject."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:9e67a7c , moc:e5bef42 , moc:fe226ad;
+        skos:notation    "SelfAdministeredWritingsAndDiaries"@en;
+        skos:prefLabel   "Self-administered writings and/or diaries"@en .
+
+moc:4da1255
+        rdf:type         skos:Concept;
+        skos:definition  "The focus group discussion is conducted over the Internet in an interactive manner."@en;
+        skos:inScheme    moc:;
+        skos:notation    "FocusGroup.Online"@en;
+        skos:prefLabel   "Online focus group"@en .
+
+moc:2b4ef44
+        rdf:type         skos:Concept;
+        skos:definition  "The focus group discussion is conducted over the telephone."@en;
+        skos:inScheme    moc:;
+        skos:notation    "FocusGroup.Telephone"@en;
+        skos:prefLabel   "Telephone focus group"@en .
+
+moc:00b3692
+        rdf:type         skos:Concept;
+        skos:definition  "The focus group participants meet in person to conduct the discussion."@en;
+        skos:inScheme    moc:;
+        skos:notation    "FocusGroup.FaceToFace"@en;
+        skos:prefLabel   "Face-to-face focus group"@en .
+
+moc:9ec957d
+        rdf:type         skos:Concept;
+        skos:definition  "A group discussion on a particular topic, organized for research purposes. The individuals are selected with relevance to the topic, and interaction among the participants is used as part of the method."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:4da1255 , moc:2b4ef44 , moc:00b3692;
+        skos:notation    "FocusGroup"@en;
+        skos:prefLabel   "Focus group"@en .
+
+moc:e48ace5
+        rdf:type         skos:Concept;
+        skos:definition  "Computer-assisted self-interview (CASI). Respondents enter the responses into a computer (desktop, laptop, Palm/PDA, tablet, etc.) by themselves. The administration of the questionnaire is managed by a specifically designed program/application but there is no real-time data transfer as in CAWI, the answers are stored on the device used for the interview. The questionnaire may be fixed form or interactive. Includes VCASI (Video computer-assisted self-interviewing), ACASI (Audio computer-assisted self-interviewing) and TACASI (Telephone audio computer-assisted self-interviewing)."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredQuestionnaire.CASI"@en;
+        skos:prefLabel   "Self-administered questionnaire: Computer-assisted (CASI)"@en .
+
+moc:557586d
+        rdf:type         skos:Concept;
+        skos:definition  "Computer-assisted web interviewing (CAWI). Data are collected using a web questionnaire, produced with a program for creating web surveys. The program can customize the flow of the questionnaire based on the answers provided, and can allow for the questionnaire to contain pictures, audio and video clips, links to different web pages etc."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredQuestionnaire.CAWI"@en;
+        skos:prefLabel   "Self-administered questionnaire: Web-based (CAWI)"@en .
+
+moc:ddaefe8
+        rdf:type         skos:Concept;
+        skos:definition  "Self-administered survey in which the respondents receive the questions incorporated in SMS (text messages) or MMS (messages including multimedia content) and send their replies in the same format."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredQuestionnaire.SMSorMMS"@en;
+        skos:prefLabel   "Self-administered questionnaire: Messaging (SMS/MMS)"@en .
+
+moc:6255fce
+        rdf:type         skos:Concept;
+        skos:definition  "Self-administered survey using a traditional paper questionnaire delivered and/or collected by mail (postal services), by fax, or in person by either interviewer, or respondent."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredQuestionnaire.Paper"@en;
+        skos:prefLabel   "Self-administered questionnaire: Paper"@en .
+
+moc:69a46ca
+        rdf:type         skos:Concept;
+        skos:definition  "Self-administered survey in which questions are presented to the respondent in the text body of an e-mail or as an attachment to an e-mail, but not as a link to a web-based questionnaire. Responses are also sent back via e-mail, in the e-mail body or as an attachment."@en;
+        skos:inScheme    moc:;
+        skos:notation    "SelfAdministeredQuestionnaire.Email"@en;
+        skos:prefLabel   "Self-administered questionnaire: E-mail"@en .
+
+moc:35e4248
+        rdf:type         skos:Concept;
+        skos:definition  "Data collection method in which the respondent reads or listens to the questions, and enters the responses by him/herself; no live interviewer is present, or participates in the questionnaire administration. If possible, use a narrower term. Use this broader term if the method is not described by any of the narrower terms - for example, for PDF and diskette questionnaires."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:e48ace5 , moc:557586d , moc:ddaefe8 , moc:6255fce , moc:69a46ca;
+        skos:notation    "SelfAdministeredQuestionnaire"@en;
+        skos:prefLabel   "Self-administered questionnaire"@en .
+
+moc:1af2bfa
+        rdf:type         skos:Concept;
+        skos:definition  "An interview conducted via the Internet. For example, interviews conducted within online forums or using web-based audio-visual technology that enables the interviewer(s) and interviewee(s) to communicate in real time."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Interview.WebBased"@en;
+        skos:prefLabel   "Web-based interview"@en .
+
+moc:b0b2868
+        rdf:type         skos:Concept;
+        skos:definition  "Interviews conducted via e-mail, usually consisting of several e-mail messages that allow the discussion to continue beyond the first set of questions and answers, or the first e-mail exchange."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Interview.Email"@en;
+        skos:prefLabel   "E-mail interview"@en .
+
+moc:1498dd4
+        rdf:type         skos:Concept;
+        skos:definition  "Computer-assisted telephone interviewing (CATI). The interviewer asks questions as directed by a computer, responses are keyed directly into the computer and the administration of the interview is managed by a specifically designed program."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Interview.Telephone.CATI"@en;
+        skos:prefLabel   "Telephone interview: Computer-assisted (CATI)"@en .
+
+moc:ae68e25
+        rdf:type         skos:Concept;
+        skos:definition  "Interview administered on the telephone. Use this broader term if not CATI, or if not known whether CATI or not."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:1498dd4;
+        skos:notation    "Interview.Telephone"@en;
+        skos:prefLabel   "Telephone interview"@en .
+
+moc:e477963
+        rdf:type         skos:Concept;
+        skos:definition  "Paper-and-pencil interviewing (PAPI). The interviewer uses a traditional paper questionnaire to read the questions and enter the answers."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Interview.FaceToFace.PAPI"@en;
+        skos:prefLabel   "Face-to-face interview: Paper-and-pencil (PAPI)"@en .
+
+moc:89e4fb4
+        rdf:type         skos:Concept;
+        skos:definition  "Computer-assisted personal interviewing (CAPI), or computer-assisted mobile interviewing (CAMI). Data collection method in which the interviewer reads questions to the respondents from the screen of a computer, laptop, or a mobile device like tablet or smartphone, and enters the answers in the same device. The administration of the interview is managed by a specifically designed program/application."@en;
+        skos:inScheme    moc:;
+        skos:notation    "Interview.FaceToFace.CAPIorCAMI"@en;
+        skos:prefLabel   "Face-to-face interview: Computer-assisted (CAPI/CAMI)"@en .
+
+moc:9f669a4
+        rdf:type         skos:Concept;
+        skos:definition  "Data collection method in which a live interviewer conducts a personal interview, presenting questions and entering the responses. Use this broader term if not CAPI or PAPI, or if not known whether CAPI/PAPI or not."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:e477963 , moc:89e4fb4;
+        skos:notation    "Interview.FaceToFace"@en;
+        skos:prefLabel   "Face-to-face interview"@en .
+
+moc:cb20d17
+        rdf:type         skos:Concept;
+        skos:definition  "A pre-planned communication between two (or more) people - the interviewer(s) and the interviewee(s) - in which information is obtained by the interviewer(s) from the interviewee(s). If group interaction is part of the method, use \"Focus group\"."@en;
+        skos:inScheme    moc:;
+        skos:narrower    moc:1af2bfa , moc:b0b2868 , moc:ae68e25 , moc:9f669a4;
+        skos:notation    "Interview"@en;
+        skos:prefLabel   "Interview"@en .
+
+moc:
+        rdf:type             skos:ConceptScheme;
+        dcterms:description  "The procedure, technique, or mode of inquiry used to attain the data."@en;
+        dcterms:isVersionOf  moc:;
+        dcterms:license      <http://creativecommons.org/licenses/by/4.0/>;
+        dcterms:rights       "Copyright ©DDI Alliance 2026";
+        dcterms:title        "Mode Of Collection"@en;
+        owl:versionInfo      "5.0.1";
+        skos:hasTopConcept   moc:6311ae1 , moc:38ceaa4 , moc:4f502b5 , moc:d9ceca6 , moc:2906121 , moc:6decc77 , moc:df9aac3 , moc:4848ed5 , moc:c867d80 , moc:cb20d17 , moc:35e4248 , moc:9ec957d , moc:08e658a , moc:c680d43 , moc:05aeba4 , moc:c5564d2;
+        skos:notation        "ModeOfCollection"@en;
+        skos:prefLabel       "Mode Of Collection"@en .
