@@ -2,9 +2,9 @@
 
 This repository accompanies the tutorial **“From study coding to semantic review data: A reproducible workflow using Web Annotation and SKOS.”** It shows how the products of study coding can be represented as explicit, interoperable, and reusable review data.
 
-The tutorial is aimed at researchers and research students conducting qualitative, interpretive, theory-oriented, realist, configurative, mapping, or mixed-form syntheses. It begins **after searching and study selection**. It does not propose a new review methodology or replace familiar coding tools. Instead, it adds standards-based representation, provenance, quality-and-trust, and access layers to established review workflows.
+The tutorial is meant for researchers and research students conducting quantitative, qualitative, or mixed-methods research syntheses. It begins **after searching and study selection**, 'post-PRISMA' that is. It does not propose a new review methodology or replace familiar coding tools. Instead, it adds standards-based representation, provenance, quality-and-trust, and access layers to established review workflows.
 
-Using a review of technology for nano-education as its running example, the tutorial moves cumulatively from a conventional coding table to a small, executable semantic review-data package:
+Using a review of technology for nano-education as its running example, the tutorial moves cumulatively from a conventional codebook and coding table to a small, executable semantic review-data package:
 
 1.  express coded relations as RDF subject–predicate–object statements;
 2.  represent and reuse coding concepts with SKOS;
