@@ -1,4 +1,4 @@
-# From study coding to semantic review data
+# From study coding to to reusable synthesis data
 
 This repository accompanies the tutorial **'From study coding to reusable synthesis data: A semantic workflow for handover and reuse'**.
 
