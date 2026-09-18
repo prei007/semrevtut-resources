@@ -1,0 +1,200 @@
+@prefix ex:     <https://example.org/review/data/> .
+@prefix review: <https://example.org/review/vocab/> .
+@prefix oa:     <http://www.w3.org/ns/oa#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+ex:study-data {
+    ex:R01 a review:Publication ;
+        dct:title "Worked example report 1"@en ;
+        review:reports ex:S01 .
+
+    ex:S01 a review:Study ;
+        review:hasCondition ex:C01 .
+
+    ex:C01 a review:InterventionCondition .
+
+    ex:R02 a review:Publication ;
+        dct:title "Worked example report 2"@en ;
+        review:reports ex:S02 .
+
+    ex:S02 a review:Study ;
+        review:hasCondition ex:C02 .
+
+    ex:C02 a review:InterventionCondition .
+
+    ex:R03 a review:Publication ;
+        dct:title "Worked example report 3"@en ;
+        review:reports ex:S03 .
+
+    ex:S03 a review:Study ;
+        review:hasCondition ex:C03 .
+
+    ex:C03 a review:InterventionCondition .
+
+    ex:ContentDomainItem a review:CodingItem ;
+        rdfs:label "Content domain"@en .
+
+    ex:FidelityMonitoringItem a review:CodingItem ;
+        rdfs:label "Fidelity monitoring"@en .
+
+    ex:ManualV2 a review:CodingManualVersion ;
+        dct:title "Intervention review coding manual"@en ;
+        dct:hasVersion "2.0" .
+
+    ex:Reviewer1 a prov:Person ;
+        rdfs:label "Reviewer 1"@en .
+
+    ex:Reviewer2 a prov:Person ;
+        rdfs:label "Reviewer 2"@en .
+}
+
+ex:annotations {
+    ex:DomainAnnotation01 a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [
+            a oa:TextualBody ;
+            rdf:value "Fractions"@en
+        ] ;
+        oa:hasTarget ex:DomainTarget01 ;
+        review:aboutEntity ex:C01 ;
+        review:appliesItem ex:ContentDomainItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-10T10:00:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+
+    ex:DomainTarget01 a oa:SpecificResource ;
+        oa:hasSource ex:R01 ;
+        review:page "4" ;
+        oa:hasSelector [
+            a oa:TextQuoteSelector ;
+            oa:exact "The twelve-week intervention taught fraction magnitude and equivalence through visual representations and number-line activities."@en
+        ] .
+
+    ex:FidelityAnnotation01_R1 a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [
+            a oa:TextualBody ;
+            rdf:value "Yes"@en
+        ] ;
+        oa:hasTarget ex:FidelityTarget01 ;
+        review:aboutEntity ex:C01 ;
+        review:appliesItem ex:FidelityMonitoringItem ;
+        review:hasStatus review:Superseded ;
+        review:reviewerMemo "The weekly checklist was treated as a fidelity-monitoring instrument."@en ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-10T10:05:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+
+    ex:FidelityTarget01 a oa:SpecificResource ;
+        oa:hasSource ex:R01 ;
+        review:page "6" ;
+        oa:hasSelector [
+            a oa:TextQuoteSelector ;
+            oa:exact "Teachers received a weekly checklist to guide delivery of the intervention lessons."@en
+        ] .
+
+    ex:FidelityAnnotation01_R2 a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [
+            a oa:TextualBody ;
+            rdf:value "Not reported"@en
+        ] ;
+        oa:hasTarget ex:R01 ;
+        review:aboutEntity ex:C01 ;
+        review:appliesItem ex:FidelityMonitoringItem ;
+        review:hasStatus review:Superseded ;
+        review:reviewerMemo "The report mentions a delivery guide but does not state that implementation data were collected or reviewed."@en ;
+        prov:wasAttributedTo ex:Reviewer2 ;
+        prov:wasGeneratedBy ex:Reviewer2Session ;
+        prov:generatedAtTime "2026-02-10T10:08:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+
+    ex:FidelityAnnotation01_Final a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [
+            a oa:TextualBody ;
+            rdf:value "Not reported"@en
+        ] ;
+        oa:hasTarget ex:R01 ;
+        review:aboutEntity ex:C01 ;
+        review:appliesItem ex:FidelityMonitoringItem ;
+        review:hasStatus review:Accepted ;
+        review:reviewerMemo "The manual requires reported collection or assessment of implementation data; providing a guide alone does not meet that rule."@en ;
+        prov:wasAttributedTo ex:Reviewer1, ex:Reviewer2 ;
+        prov:wasGeneratedBy ex:Adjudication01 ;
+        prov:wasDerivedFrom ex:FidelityAnnotation01_R1,
+                            ex:FidelityAnnotation01_R2 ;
+        prov:generatedAtTime "2026-02-12T13:30:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+
+    ex:DomainAnnotation02 a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [ a oa:TextualBody ; rdf:value "Algebra"@en ] ;
+        oa:hasTarget ex:R02 ;
+        review:aboutEntity ex:C02 ;
+        review:appliesItem ex:ContentDomainItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-14T09:00:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+
+    ex:FidelityAnnotation02 a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [ a oa:TextualBody ; rdf:value "Yes"@en ] ;
+        oa:hasTarget ex:R02 ;
+        review:aboutEntity ex:C02 ;
+        review:appliesItem ex:FidelityMonitoringItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-14T09:05:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+
+    ex:DomainAnnotation03 a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [ a oa:TextualBody ; rdf:value "Word-problem solving"@en ] ;
+        oa:hasTarget ex:R03 ;
+        review:aboutEntity ex:C03 ;
+        review:appliesItem ex:ContentDomainItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-15T09:00:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+
+    ex:FidelityAnnotation03 a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody [ a oa:TextualBody ; rdf:value "No"@en ] ;
+        oa:hasTarget ex:R03 ;
+        review:aboutEntity ex:C03 ;
+        review:appliesItem ex:FidelityMonitoringItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-15T09:05:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 .
+}
+
+ex:provenance {
+    ex:Reviewer1Session a prov:Activity, review:IndependentCodingActivity ;
+        prov:wasAssociatedWith ex:Reviewer1 ;
+        prov:used ex:R01, ex:R02, ex:R03, ex:ManualV2 .
+
+    ex:Reviewer2Session a prov:Activity, review:IndependentCodingActivity ;
+        prov:wasAssociatedWith ex:Reviewer2 ;
+        prov:used ex:R01, ex:ManualV2 .
+
+    ex:Adjudication01 a prov:Activity, review:AdjudicationActivity ;
+        prov:wasAssociatedWith ex:Reviewer1, ex:Reviewer2 ;
+        prov:used ex:FidelityAnnotation01_R1,
+                  ex:FidelityAnnotation01_R2,
+                  ex:ManualV2 .
+}

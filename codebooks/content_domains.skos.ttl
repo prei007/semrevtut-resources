@@ -1,0 +1,52 @@
+@prefix domain: <https://example.org/review/codebook/content-domain/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+
+domain:Scheme a skos:ConceptScheme ;
+    skos:prefLabel "Intervention content domains"@en ;
+    dct:hasVersion "1.0" ;
+    skos:hasTopConcept domain:Mathematics .
+
+domain:Mathematics a skos:Concept ;
+    skos:inScheme domain:Scheme ;
+    skos:prefLabel "Mathematics"@en ;
+    skos:definition "The domain concerned with number, quantity, structure, space, and related mathematical practices."@en ;
+    skos:topConceptOf domain:Scheme .
+
+domain:NumberAndOperations a skos:Concept ;
+    skos:inScheme domain:Scheme ;
+    skos:prefLabel "Number and operations"@en ;
+    skos:broader domain:Mathematics .
+
+domain:Fractions a skos:Concept ;
+    skos:inScheme domain:Scheme ;
+    skos:prefLabel "Fractions"@en ;
+    skos:definition "Rational numbers represented as parts of a whole, ratios, quotients, measures, or operators."@en ;
+    skos:scopeNote "Use when fractions are a direct instructional target, rather than appearing only incidentally in another topic."@en ;
+    skos:broader domain:NumberAndOperations ;
+    skos:related domain:WordProblemSolving .
+
+domain:WholeNumberComputation a skos:Concept ;
+    skos:inScheme domain:Scheme ;
+    skos:prefLabel "Whole-number computation"@en ;
+    skos:broader domain:NumberAndOperations .
+
+domain:Algebra a skos:Concept ;
+    skos:inScheme domain:Scheme ;
+    skos:prefLabel "Algebra"@en ;
+    skos:definition "The study of generalized arithmetic, relations, functions, equations, and symbolic structures."@en ;
+    skos:broader domain:Mathematics .
+
+domain:Geometry a skos:Concept ;
+    skos:inScheme domain:Scheme ;
+    skos:prefLabel "Geometry"@en ;
+    skos:broader domain:Mathematics .
+
+domain:WordProblemSolving a skos:Concept ;
+    skos:inScheme domain:Scheme ;
+    skos:prefLabel "Word-problem solving"@en ;
+    skos:altLabel "Mathematical story-problem solving"@en ;
+    skos:definition "Interpreting verbally presented quantitative situations and constructing mathematical solutions."@en ;
+    skos:scopeNote "Use when interpreting or solving word problems is itself an instructional target. Also assign a more specific content code when the problem set has a consistent mathematical domain."@en ;
+    skos:broader domain:Mathematics ;
+    skos:related domain:Fractions .

@@ -1,0 +1,47 @@
+@prefix ex:     <https://example.org/review/data/> .
+@prefix review: <https://example.org/review/vocab/> .
+@prefix domain: <https://example.org/review/codebook/content-domain/> .
+@prefix oa:     <http://www.w3.org/ns/oa#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+ex:skos-domain-annotations {
+    ex:DomainAnnotation01_SKOS a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody domain:Fractions ;
+        oa:hasTarget ex:DomainTarget01 ;
+        review:aboutEntity ex:C01 ;
+        review:appliesItem ex:ContentDomainItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-10T10:00:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 ;
+        review:usedConceptSchemeVersion domain:Scheme .
+
+    ex:DomainAnnotation02_SKOS a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody domain:Algebra ;
+        oa:hasTarget ex:R02 ;
+        review:aboutEntity ex:C02 ;
+        review:appliesItem ex:ContentDomainItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-14T09:00:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 ;
+        review:usedConceptSchemeVersion domain:Scheme .
+
+    ex:DomainAnnotation03_SKOS a oa:Annotation, prov:Entity ;
+        oa:motivatedBy oa:classifying ;
+        oa:hasBody domain:WordProblemSolving ;
+        oa:hasTarget ex:R03 ;
+        review:aboutEntity ex:C03 ;
+        review:appliesItem ex:ContentDomainItem ;
+        review:hasStatus review:Accepted ;
+        prov:wasAttributedTo ex:Reviewer1 ;
+        prov:wasGeneratedBy ex:Reviewer1Session ;
+        prov:generatedAtTime "2026-02-15T09:00:00Z"^^xsd:dateTime ;
+        review:usedCodingManualVersion ex:ManualV2 ;
+        review:usedConceptSchemeVersion domain:Scheme .
+}
