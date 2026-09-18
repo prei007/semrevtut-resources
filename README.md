@@ -1,6 +1,6 @@
 # From study coding to semantic review data
 
-This repository accompanies the tutorial **“From study coding to semantic review data: A reproducible workflow using RDF and Web Annotation.”**
+This repository accompanies the tutorial **'From study coding to reusable synthesis data: A semantic workflow for handover and reuse'**.
 
 The tutorial begins with the kind of carefully designed, multi-table coding form described by Nelson et al. (2025). It asks what happens at handover: how another review team can inspect, extend, and selectively reuse earlier coding without having to reconstruct all of its meaning from workbook structure and local documentation.
 
@@ -22,9 +22,6 @@ SPARQL queries retrieve conventional tables from these layers and check their st
 
 ``` text
 semrevtut/
-├── manuscript-v2.qmd
-├── manuscript-v2.pdf
-├── references.bib
 ├── studies/
 │   ├── intervention-review-example.trig
 │   └── intervention-review-skos-annotations.trig
@@ -37,7 +34,6 @@ semrevtut/
 │   ├── find-intervention-disagreements.rq
 │   ├── check-intervention-provenance.rq
 │   └── list-mathematics-domain-codings.rq
-└── media/
 ```
 
 The core TriG file is self-contained. The SKOS example is deliberately kept in companion files so readers can complete the RDF, Web Annotation, provenance, and SPARQL workflow without first adopting a semantic codebook.
@@ -162,16 +158,6 @@ riot --validate code_books/content_domains.skos.ttl
 
 Successful validation produces no error message.
 
-## Render the manuscript
-
-With [Quarto](https://quarto.org/docs/get-started/) installed, run:
-
-``` bash
-quarto render manuscript-v2.qmd
-```
-
-The manuscript currently refers to an APA CSL file through an absolute path in its YAML front matter. On another computer, replace that value with the path to an available APA CSL file before rendering.
-
 ## Representation standards
 
 - **RDF** is the underlying graph data model, written here as Turtle and TriG.
@@ -184,4 +170,4 @@ The examples use fictional reports and demonstration metadata. Source publicatio
 
 ## Licence and citation
 
-The project is licensed under the [GNU General Public License v3](LICENSE). Consult [`references.bib`](references.bib) and the manuscript for the sources cited by the tutorial.
+The project is licensed under the [GNU General Public License v3](LICENSE).
