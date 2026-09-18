@@ -45,7 +45,6 @@ Running the examples requires:
 - Java 21 or later;
 - the Apache Jena binary distribution, which contains the `arq` and `riot` command-line tools; and
 - a terminal opened in this repository's `semrevtut` directory.
-- 
 
 ## Install Apache Jena
 
