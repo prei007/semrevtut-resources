@@ -167,6 +167,16 @@ Successful validation produces no error message.
 
 The examples use fictional reports and demonstration metadata. Source publications are not distributed in this repository.
 
+## Graphical interfaces (not part of the tutorial)
+
+This tutorial focusses exclusively on the logic of semantic synthesis, not any particular application or interface. Jena, the database engine used for running the examples, is a command-line application with no graphic interface. It has been chosen to maximise portability and minimise installation requiremnents. Graphical interfaces for viewing and editing RDF data are provided by many of the RDF database engines, such as Virtuoso (<https://virtuoso.openlinksw.com/open>; source available) and AllegroGraph (<https://allegrograph.com/>; commercial but free for small databases).
+
+Another way to provide visual and point-and-click interfaces for RDF graphs is to write bespoke web-applications that function as clients to an RDF triple store server. Here is an example:
+
+![A minimal web client with a select/edit interface on the left and network visualisation to the right.](media/litgraph.jpg)
+
+This (R Shiny) application allows accessing and editing information about individual studies on the left and provides visualisations - mostly, but not exclusively networks - on the right. The visualisations are dynamic: They get updated based on queries to the server whenever the `show/update map` button gets clicked on.
+
 ## Licence and citation
 
 The project is licensed under the [GNU General Public License v3](LICENSE).
